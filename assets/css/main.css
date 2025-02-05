@@ -1273,3 +1273,45 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+
+.freelacing-links {
+  position: fixed;
+  bottom: 10%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.freelacing-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.freelacing-links a:hover {
+  background: #007bff;
+}
+
+.freelacing-links .upwork {
+  background: #6fda44;
+}
+
+.freelacing-links .fiverr {
+  background: #1dbf73;
+}
+
+.freelacing-links .contra {
+  background: #ff5c5c;
+}
