@@ -543,10 +543,13 @@
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Sending message...</div>
-                  <div class="error-message"></div>
                   <div class="sent-message">
                     <i class="bi bi-check-circle-fill"></i>
-                    Your message has been sent successfully. Thank you!
+                    <span>Your message has been sent successfully. Thank you!</span>
+                  </div>
+                  <div class="error-message">
+                    <i class="bi bi-exclamation-octagon-fill"></i>
+                    <span>Something went wrong, please try again.</span>
                   </div>
 
                   <button type="submit">Send Message</button>
@@ -588,15 +591,20 @@
           });
 
           if (response.ok) {
-            sentMessage.style.display = 'block';
+            sentMessage.classList.add('show');
             form.reset();
+            setTimeout(() => {
+              sentMessage.classList.remove('show');
+            }, 3000);
           } else {
             const errorText = await response.text();
             throw new Error(errorText || 'Failed to send message');
           }
         } catch (error) {
-          errorMessage.textContent = 'Something went wrong, please try again.';
-          errorMessage.style.display = 'block';
+          errorMessage.classList.add('show');
+          setTimeout(() => {
+            errorMessage.classList.remove('show');
+          }, 3000);
         } finally {
           loading.style.display = 'none';
         }

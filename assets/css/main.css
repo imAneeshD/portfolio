@@ -92,50 +92,64 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
+/* Notification Banners
 ------------------------------*/
-.php-email-form .error-message,
-.custom-contact-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
+.sent-message,
+.error-message {
+  position: fixed;
+  top: 30px;
+  right: -400px;
+  width: 380px;
+  z-index: 10000;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
   font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.php-email-form .sent-message,
-.custom-contact-form .sent-message {
-  display: none;
-  color: #155724;
-  background: #d4edda;
-  border: 1px solid #c3e6cb;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 24px;
-  font-weight: 600;
-  border-radius: 8px;
-  animation: slideInDown 0.5s ease;
+.sent-message.show,
+.error-message.show {
+  right: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sent-message {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.error-message {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
 }
 
 .sent-message i {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 10px;
-  color: #28a745;
+  color: #22c55e;
+  font-size: 22px;
 }
 
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+.error-message i {
+  color: #ef4444;
+  font-size: 22px;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Ensure default hiding for form elements as well */
+.custom-contact-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
 }
 
 .php-email-form .loading,
