@@ -575,8 +575,8 @@
         const sentMessage = form.querySelector('.sent-message');
 
         loading.style.display = 'block';
-        errorMessage.style.display = 'none';
-        sentMessage.style.display = 'none';
+        errorMessage.classList.remove('show');
+        sentMessage.classList.remove('show');
 
         const formData = new FormData(form);
         const formObject = Object.fromEntries(formData);
